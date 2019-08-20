@@ -14,41 +14,83 @@
         app:title="@string/profile_title"
         app:titleTextColor="@android:color/white" />
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="14dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_equalizer"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Equalizer"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/iv_equalizer"
             android:layout_width="64dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_switch_on" />
-    </LinearLayout>
+            android:layout_height="34dp"
+            android:src="@drawable/ic_switch_on"
+            app:layout_constraintLeft_toRightOf="@id/tv_equalizer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/backound_spinner"
+            android:gravity="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp"
+                android:text="Normal"
+                android:textColor="#10ede6"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/circle" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp">
+        android:layout_height="230dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="+15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
             <SeekBar
                 android:id="@+id/seekBar"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
                 android:layout_marginLeft="-70dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -62,20 +104,31 @@
                 android:layout_marginTop="90dp"
                 android:text="50hz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:text="+15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBar1"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
                 android:layout_marginLeft="-20dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -89,6 +142,7 @@
                 android:layout_marginTop="90dp"
                 android:text="130hz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -96,14 +150,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:text="+15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBar2"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -117,6 +181,7 @@
                 android:layout_marginTop="90dp"
                 android:text="320hz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -124,14 +189,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="160dp"
+                android:text="-15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBar3"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
                 android:layout_marginLeft="80dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -145,6 +220,7 @@
                 android:layout_marginTop="90dp"
                 android:text="800hz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -152,14 +228,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="210dp"
+                android:text="-15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBar4"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
                 android:layout_marginLeft="130dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -173,6 +259,7 @@
                 android:layout_marginTop="90dp"
                 android:text="2khz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -180,14 +267,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="260dp"
+                android:text="+15dB"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBar5"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="100dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="185dp"
+                android:layout_marginTop="90dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
                 android:rotation="270"
@@ -201,6 +298,7 @@
                 android:layout_marginTop="90dp"
                 android:text="5khz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -210,12 +308,21 @@
             android:layout_gravity="right"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text="-15db"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
             <SeekBar
                 android:id="@+id/seekBar6"
                 android:layout_width="200dp"
-                android:layout_height="8dp"
+                android:layout_height="6dp"
 
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="90dp"
                 android:layout_marginRight="-70dp"
                 android:progress="40"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -230,6 +337,7 @@
                 android:layout_marginTop="90dp"
                 android:text="12.5khz"
                 android:textColor="@android:color/white"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -250,18 +358,18 @@
             android:layout_height="wrap_content"
             android:text="save"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
+            android:textColor="#10ede6"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="refesh"
+            android:text="refresh"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
+            android:textColor="#74768D"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -272,71 +380,151 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:text="Boost Volume"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Boost Volume"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_switch_on" />
+        </LinearLayout>
 
         <SeekBar
             android:id="@+id/seekBar_boost_volume"
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="7dp"
+            android:layout_marginTop="10dp"
             android:progress="40"
             android:progressDrawable="@drawable/seekbar_style_2"
             android:splitTrack="false"
             android:thumb="@drawable/circle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="20dp"
-            android:text="Bast boost"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Bast boost"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_switch_on" />
+        </LinearLayout>
 
         <SeekBar
             android:id="@+id/seekBar_bass_boost"
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="10dp"
             android:progress="20"
             android:progressDrawable="@drawable/seekbar_style_2"
             android:splitTrack="false"
             android:thumb="@drawable/circle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="20dp"
-            android:text="Virtualizer"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Virtualizer"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_switch_on" />
+        </LinearLayout>
+
 
         <SeekBar
             android:id="@+id/seekBar_virtualizer"
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="10dp"
             android:progress="10"
             android:progressDrawable="@drawable/seekbar_style_2"
             android:splitTrack="false"
             android:thumb="@drawable/circle" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="20dp"
-            android:text="Reverb"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/tv_reverb"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Equalizer"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_reverb"
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_switch_on"
+                app:layout_constraintLeft_toRightOf="@id/tv_reverb"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/backound_spinner"
+                android:gravity="center"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:text="None"
+                    android:textColor="#10ede6"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/circle" />
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
 </LinearLayout>

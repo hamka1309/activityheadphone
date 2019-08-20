@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
-    <SeekBar
-        android:id="@+id/sbCustomSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:max="100"
-        android:progress="0"
-        android:progressDrawable="@drawable/seekbar"
-        android:splitTrack="false"
-        android:rotation="270"
-        android:thumb="@drawable/circle"
-        tools:progress="50"/>
+    android:layout_height="match_parent">
 
-    <SeekBar
-        android:id="@+id/seekBar_luminosite"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="50dp"
-        android:progress="0"
-        android:splitTrack="false"
-        android:rotation="270"
-        android:progressDrawable="@drawable/seekbar_style_2"
-        android:thumb="@drawable/circle"/>
-
-</LinearLayout>
+   <ListView
+       android:id="@+id/listView"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+</android.support.constraint.ConstraintLayout>
