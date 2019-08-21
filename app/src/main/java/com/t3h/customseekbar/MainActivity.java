@@ -17,26 +17,22 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Toolbar toolbar;
-    private View layouReverb;
-    private View layouEqualizer;
-    private final String CUSTOM_ADAPTER_IMAGE = "image";
-    private final String CUSTOM_ADAPTER_TEXT = "text";
-    private int[] imageIdArr = {R.drawable.mango, R.drawable.strawberry, R.drawable.grapes, R.drawable.grapes
-            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
-            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
-            , R.drawable.grapes
-            , R.drawable.grapes, R.drawable.grapes
-            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
-            , R.drawable.grapes};
-    // Each item text.
-    private String[] listItemArr = {"Candy Cane", "Present", "Snow Man"};
-    String[] equalizer = {"Flat", "Bass Only", "Treble Only", "Rock", "Grunge", "Metal", "Dance", "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age",
-            "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age"};
-
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
+
+    private final String CUSTOM_ADAPTER_IMAGE = "image";
+    private final String CUSTOM_ADAPTER_TEXT = "text";
+    AlertDialog dialog;
+    // Each item text.
+    String[] equalizer = {"Flat", "Bass Only", "Treble Only", "Rock", "Grunge", "Metal", "Dance", "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age"};
+    private Toolbar toolbar;
+    private View layouReverb;
+    private View layouEqualizer;
+    private int[] imageIdArr = {R.drawable.ic_bcm_ic_preset_flat, R.drawable.ic_bcm_ic_preset_bass, R.drawable.ic_bcm_ic_preset_treble, R.drawable.ic_bcm_ic_preset_rock
+            , R.drawable.ic_bcm_ic_preset_grunge, R.drawable.ic_bcm_ic_preset_metal, R.drawable.ic_bcm_ic_preset_dance, R.drawable.ic_bcm_ic_preset_country, R.drawable.ic_bcm_ic_preset_jazz
+            , R.drawable.ic_bcm_ic_preset_speech, R.drawable.ic_bcm_ic_preset_classical, R.drawable.ic_bcm_ic_preset_blue, R.drawable.ic_bcm_ic_preset_opera, R.drawable.ic_bcm_ic_preset_swing, R.drawable.ic_bcm_ic_preset_acoustic
+            , R.drawable.ic_bcm_ic_preset_new_age};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void showDialogReverb() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
         String[] animals = {"None", "Smallroom", "Mediumroom", "Largeroom", "Plate", "Mediumhall", "Largehall"};
         builder.setItems(animals, new DialogInterface.OnClickListener() {
             @Override
@@ -70,44 +66,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
         AlertDialog dialog = builder.create();
+
         dialog.show();
     }
 
     public void showDialogEqualizer() {
-        // Create a alert dialog builder.
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        // Set icon value.
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle1);
 
-        // Create SimpleAdapter list data.
         List<Map<String, Object>> dialogItemList = new ArrayList<Map<String, Object>>();
         int listItemLen = equalizer.length;
         for (int i = 0; i < listItemLen; i++) {
             Map<String, Object> itemMap = new HashMap<String, Object>();
             itemMap.put(CUSTOM_ADAPTER_IMAGE, imageIdArr[i]);
             itemMap.put(CUSTOM_ADAPTER_TEXT, equalizer[i]);
-
             dialogItemList.add(itemMap);
         }
 
-        // Create SimpleAdapter object.
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, dialogItemList,
                 R.layout.item_equalizer,
                 new String[]{CUSTOM_ADAPTER_IMAGE, CUSTOM_ADAPTER_TEXT},
                 new int[]{R.id.alertDialogItemImageView, R.id.alertDialogItemTextView});
 
-        // Set the data adapter.
         builder.setAdapter(simpleAdapter, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int itemIndex) {
 
             }
         });
-
-        builder.setCancelable(false);
-        builder.create();
-        builder.show();
+        int width = (int) (getResources().getDisplayMetrics().widthPixels * 0.90);
+        int height = (int) (getResources().getDisplayMetrics().heightPixels * 0.80);
+        dialog = builder.create();
+        dialog.show();
+        dialog.getWindow().setLayout(width, height);
     }
 
     @Override

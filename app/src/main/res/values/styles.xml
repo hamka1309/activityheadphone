@@ -8,6 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
+    <style name="AlertDialogStyle"  parent="Base.Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">#181C27</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorTertiary">@android:color/white</item>
+        <item name="colorAccent">#fff</item>
+        <item name="textColorAlertDialogListItem">#33b5e5</item>
 
+    </style>
+    <style name="AlertDialogStyle1"  parent="Base.Theme.AppCompat.Light.Dialog.Alert" >
+        <item name="android:background">#181C27</item>
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar" />
 </resources>
