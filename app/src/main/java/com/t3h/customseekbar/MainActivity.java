@@ -1,52 +1,124 @@
 package com.t3h.customseekbar;
 
 
-import android.app.Dialog;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
-    String[] equalizer={"Flat","Bass Only","Treble Only","Rock","Grunge","Metal","Dance","Country","Jazz","Speech","Classical","Blues","Opera","Swing","Acoustic","New Age"};
-    ListView listView;
-    TextView textView;
-    String[] listItem;
-    private Dialog dialog;
+    private View layouReverb;
+    private View layouEqualizer;
+    private final String CUSTOM_ADAPTER_IMAGE = "image";
+    private final String CUSTOM_ADAPTER_TEXT = "text";
+    private int[] imageIdArr = {R.drawable.mango, R.drawable.strawberry, R.drawable.grapes, R.drawable.grapes
+            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
+            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
+            , R.drawable.grapes
+            , R.drawable.grapes, R.drawable.grapes
+            , R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes, R.drawable.grapes
+            , R.drawable.grapes};
+    // Each item text.
+    private String[] listItemArr = {"Candy Cane", "Present", "Snow Man"};
+    String[] equalizer = {"Flat", "Bass Only", "Treble Only", "Rock", "Grunge", "Metal", "Dance", "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age",
+            "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age"};
+
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.headphone_activity);
-//        toolbar = findViewById(R.id.toobal1);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile_ic_arrow_left);
+        toolbar = findViewById(R.id.toobal1);
+        layouReverb = findViewById(R.id.layout_reverb);
+        layouEqualizer = findViewById(R.id.layout_equalizer);
+        layouReverb.setOnClickListener(this);
+        layouEqualizer.setOnClickListener(this);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile_ic_arrow_left);
 
-
-        listView=(ListView)findViewById(R.id.listView);
-        textView=(TextView)findViewById(R.id.textView);
-        listItem = getResources().getStringArray(R.array.array_technology);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, listItem);
-        listView.setAdapter(adapter);
     }
-    public void showDialog() {
-        dialog = new Dialog(MainActivity.this);
-        dialog.setTitle("Thangcode.com");
-        dialog.setContentView(R.layout.activity_main);
+
+    public void showDialogReverb() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        String[] animals = {"None", "Smallroom", "Mediumroom", "Largeroom", "Plate", "Mediumhall", "Largehall"};
+        builder.setItems(animals, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:// horse
+                    case 1: // cow
+                    case 2: // camel
+                    case 3: // sheep
+                    case 4: // goat
+                }
+            }
+        });
+        AlertDialog dialog = builder.create();
         dialog.show();
     }
 
+    public void showDialogEqualizer() {
+        // Create a alert dialog builder.
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Set icon value.
 
+
+        // Create SimpleAdapter list data.
+        List<Map<String, Object>> dialogItemList = new ArrayList<Map<String, Object>>();
+        int listItemLen = equalizer.length;
+        for (int i = 0; i < listItemLen; i++) {
+            Map<String, Object> itemMap = new HashMap<String, Object>();
+            itemMap.put(CUSTOM_ADAPTER_IMAGE, imageIdArr[i]);
+            itemMap.put(CUSTOM_ADAPTER_TEXT, equalizer[i]);
+
+            dialogItemList.add(itemMap);
+        }
+
+        // Create SimpleAdapter object.
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, dialogItemList,
+                R.layout.item_equalizer,
+                new String[]{CUSTOM_ADAPTER_IMAGE, CUSTOM_ADAPTER_TEXT},
+                new int[]{R.id.alertDialogItemImageView, R.id.alertDialogItemTextView});
+
+        // Set the data adapter.
+        builder.setAdapter(simpleAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int itemIndex) {
+
+            }
+        });
+
+        builder.setCancelable(false);
+        builder.create();
+        builder.show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.layout_reverb:
+                showDialogReverb();
+                break;
+            case R.id.layout_equalizer:
+                showDialogEqualizer();
+                break;
+        }
+    }
 }
