@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">custom seek bar</string>
     <string name="profile_title">Headphone</string>
+    <string name="headphone_equalizer">Equalizer</string>
+    <string name="headphone_boost_volume">Boost Volume</string>
+    <string name="headphone_bast_boost">Bast boost</string>
+    <string name="headphone_virtualizer">Virtualizer</string>
+    <string name="headphone_reverb">Reverb</string>
     <string-array name="array_technology">
         <item>Android</item>
         <item>Java</item>

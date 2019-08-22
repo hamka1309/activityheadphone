@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1e1f2f"
+    android:background="@color/backgroud_headphone"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -26,7 +26,7 @@
             android:id="@+id/tv_equalizer"
             android:layout_width="@dimen/dp_100"
             android:layout_height="wrap_content"
-            android:text="Equalizer"
+            android:text="@string/headphone_equalizer"
             android:textColor="@android:color/white"
             android:textSize="@dimen/dp_14"
             android:textStyle="bold"
@@ -34,6 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
+            android:id="@+id/toggle_button_equalizer"
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_30"
             android:background="@drawable/toogle_swich"
@@ -43,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
-            android:id="@id/layout_equalizer"
+            android:id="@id/layout_dialog_equalizer"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_26"
             android:layout_marginRight="@dimen/dp_24"
@@ -53,7 +54,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_set_equalizer"
+                android:id="@+id/tv_dialog_set_equalizer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/dp_5"
@@ -301,12 +302,13 @@
             <TextView
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="wrap_content"
-                android:text="Boost Volume"
+                android:text="@string/headphone_boost_volume"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold" />
 
             <ToggleButton
+                android:id="@+id/toggle_button_boost_volume"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_30"
                 android:background="@drawable/toogle_swich"
@@ -335,12 +337,13 @@
             <TextView
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="wrap_content"
-                android:text="Bast boost"
+                android:text="@string/headphone_bast_boost"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold" />
 
             <ToggleButton
+                android:id="@+id/toggle_button_bast_boost"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_30"
                 android:background="@drawable/toogle_swich"
@@ -370,11 +373,12 @@
             <TextView
                 android:layout_width="@dimen/dp_100"
                 android:layout_height="wrap_content"
-                android:text="Virtualizer"
+                android:text="@string/headphone_virtualizer"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold" />
             <ToggleButton
+                android:id="@+id/toggle_button_virtualizer"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_30"
                 android:background="@drawable/toogle_swich"
@@ -404,7 +408,7 @@
                 android:id="@+id/tv_reverb"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Reverb"
+                android:text="@string/headphone_reverb"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold"
@@ -412,7 +416,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ToggleButton
-                android:id="@+id/iv_reverb"
+                android:id="@+id/toggle_button_reverb"
                 android:layout_width="@dimen/dp_40"
                 android:layout_height="@dimen/dp_30"
                 android:background="@drawable/toogle_swich"
@@ -423,7 +427,7 @@
                 />
 
             <LinearLayout
-                android:id="@+id/layout_reverb"
+                android:id="@+id/layout_dialog_reverb"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_26"
                 android:layout_marginRight="@dimen/dp_24"
@@ -433,7 +437,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tv_set_reverb"
+                    android:id="@+id/tv_dialog_set_reverb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp_5"
