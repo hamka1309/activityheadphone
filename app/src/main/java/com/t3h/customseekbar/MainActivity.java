@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.SeekBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View layouEqualizer;
     private TextView tvSetEqualiez;
     private TextView tvSetReverb;
+
+    private ToggleButton toggleButtonBastBoot;
+    private ToggleButton toggleButtonEqualizer;
+    private ToggleButton toggleButtonBoostVolume;
+    private ToggleButton toggleButtonVirtualizer;
+    private ToggleButton toggleButtonReverb;
+
+    private SeekBar seekBarBastBoot;
+    private SeekBar seekBarBoostVolume;
+    private SeekBar seekBarVirtualizer;
+
     private String[] reverb = {"None", "Smallroom", "Mediumroom", "Largeroom", "Plate", "Mediumhall", "Largehall"};
     private String[] equalizer = {"Flat", "Bass Only", "Treble Only", "Rock", "Grunge", "Metal", "Dance"
             , "Country", "Jazz", "Speech", "Classical", "Blues", "Opera", "Swing", "Acoustic", "New Age"};
@@ -60,6 +75,59 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.profile_ic_arrow_left);
+
+        toggleButtonBastBoot = findViewById(R.id.toggle_button_bast_boost);
+        toggleButtonBoostVolume = findViewById(R.id.toggle_button_boost_volume);
+        toggleButtonEqualizer = findViewById(R.id.toggle_button_equalizer);
+        toggleButtonVirtualizer = findViewById(R.id.toggle_button_virtualizer);
+        toggleButtonReverb = findViewById(R.id.toggle_button_reverb);
+        seekBarBastBoot = findViewById(R.id.seekBar_bass_boost);
+        seekBarBoostVolume = findViewById(R.id.seekBar_boost_volume);
+        seekBarVirtualizer = findViewById(R.id.seekBar_virtualizer);
+
+                CompoundButton.OnCheckedChangeListener listener =
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        switch (compoundButton.getId()) {
+                            case R.id.toggle_button_bast_boost:
+                                if (!compoundButton.isChecked()) {
+                                    seekBarBastBoot.setEnabled(false);
+                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
+                                }
+                                else seekBarVirtualizer.setEnabled(true);
+                                break;
+                            case R.id.toggle_button_boost_volume:
+                                if (!compoundButton.isChecked()) {
+                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
+                                    seekBarBoostVolume.setEnabled(false);
+                                }
+                                else seekBarVirtualizer.setEnabled(true);
+                                break;
+                            case R.id.toggle_button_virtualizer:
+                                if (!compoundButton.isChecked()) {
+                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
+                                    seekBarVirtualizer.setEnabled(false);
+                                }
+                                else seekBarVirtualizer.setEnabled(true);
+                                break;
+                            case R.id.toggle_button_equalizer:
+
+                                break;
+                            case R.id.toggle_button_reverb:
+
+                                break;
+
+                        }
+                    }
+                };
+
+        toggleButtonReverb.setOnCheckedChangeListener(listener);
+        toggleButtonVirtualizer.setOnCheckedChangeListener(listener);
+        toggleButtonEqualizer.setOnCheckedChangeListener(listener);
+        toggleButtonBoostVolume.setOnCheckedChangeListener(listener);
+        toggleButtonBastBoot.setOnCheckedChangeListener(listener);
+
 
     }
 
@@ -124,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialog = builder.create();
         dialog.show();
         dialog.getWindow().setLayout(widthReverb, heightReverb);
-
     }
 
     @Override

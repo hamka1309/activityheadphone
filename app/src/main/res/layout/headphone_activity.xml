@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/backgroud_headphone"
     android:orientation="vertical">
 
@@ -11,9 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         android:layout_marginBottom="@dimen/dp_15"
-        android:padding="@dimen/dp_5"
+        android:padding="3dp"
         app:title="@string/profile_title"
         app:titleTextColor="@android:color/white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:orientation="vertical">
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -59,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/dp_5"
                 android:paddingLeft="@dimen/dp_10"
-                android:text="Normal"
+                tools:text="Normal"
                 android:textColor="#0CEBEB"
                 android:textSize="@dimen/sp_12" />
 
@@ -99,8 +111,8 @@
             <com.t3h.customseekbar.VerticalSeekBar
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="200dp"
-                android:max="15"
-                android:min="-15"
+                android:max="30"
+                android:min="0"
                 android:padding="7dp"
                 android:progress="13"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -134,8 +146,8 @@
             <com.t3h.customseekbar.VerticalSeekBar
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="200dp"
-                android:max="15"
-                android:min="-15"
+                android:max="30"
+                android:min="0"
                 android:padding="7dp"
                 android:progress="13"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -169,8 +181,8 @@
             <com.t3h.customseekbar.VerticalSeekBar
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="200dp"
-                android:max="15"
-                android:min="-15"
+                android:max="30"
+                android:min="0"
                 android:padding="7dp"
                 android:progress="13"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -204,8 +216,8 @@
             <com.t3h.customseekbar.VerticalSeekBar
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="200dp"
-                android:max="15"
-                android:min="-15"
+                android:max="30"
+                android:min="0"
                 android:padding="7dp"
                 android:progress="13"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -239,8 +251,8 @@
             <com.t3h.customseekbar.VerticalSeekBar
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="200dp"
-                android:max="15"
-                android:min="-15"
+                android:max="30"
+                android:min="0"
                 android:padding="7dp"
                 android:progress="3"
                 android:progressDrawable="@drawable/seekbar_style_2"
@@ -290,7 +302,9 @@
         android:id="@+id/layout_horigentol"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp_30"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -442,7 +456,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp_5"
                     android:paddingLeft="@dimen/dp_10"
-                    android:text="None"
+                    tools:text="None"
                     android:textColor="#0CEBEB"
                     android:textSize="@dimen/sp_12" />
 
@@ -454,6 +468,7 @@
                     android:src="@drawable/ic_arrow_drop_down" />
             </LinearLayout>
         </android.support.constraint.ConstraintLayout>
-    </LinearLayout>
-
 </LinearLayout>
+
+    </LinearLayout>
+        </ScrollView></LinearLayout>
