@@ -6,9 +6,9 @@
         <clip>
             <shape
                 android:shape="rectangle" >
-                <size android:height="6dp"/>
+                <size android:height="@dimen/dp_6"/>
                 <corners
-                    android:radius="10dp" />
+                    android:radius="@dimen/dp_10" />
                 <gradient
                     android:angle="180"
                     android:endColor="#29ffc6"
