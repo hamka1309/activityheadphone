@@ -85,50 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seekBarBoostVolume = findViewById(R.id.seekBar_boost_volume);
         seekBarVirtualizer = findViewById(R.id.seekBar_virtualizer);
 
-                CompoundButton.OnCheckedChangeListener listener =
-                new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                        switch (compoundButton.getId()) {
-                            case R.id.toggle_button_bast_boost:
-                                if (!compoundButton.isChecked()) {
-                                    seekBarBastBoot.setEnabled(false);
-                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
-                                }
-                                else seekBarVirtualizer.setEnabled(true);
-                                break;
-                            case R.id.toggle_button_boost_volume:
-                                if (!compoundButton.isChecked()) {
-                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
-                                    seekBarBoostVolume.setEnabled(false);
-                                }
-                                else seekBarVirtualizer.setEnabled(true);
-                                break;
-                            case R.id.toggle_button_virtualizer:
-                                if (!compoundButton.isChecked()) {
-                                    Log.e("ha", "onCheckedChanged: "+compoundButton.isChecked() );
-                                    seekBarVirtualizer.setEnabled(false);
-                                }
-                                else seekBarVirtualizer.setEnabled(true);
-                                break;
-                            case R.id.toggle_button_equalizer:
+    }
 
-                                break;
-                            case R.id.toggle_button_reverb:
-
-                                break;
-
-                        }
-                    }
-                };
-
-        toggleButtonReverb.setOnCheckedChangeListener(listener);
-        toggleButtonVirtualizer.setOnCheckedChangeListener(listener);
-        toggleButtonEqualizer.setOnCheckedChangeListener(listener);
-        toggleButtonBoostVolume.setOnCheckedChangeListener(listener);
-        toggleButtonBastBoot.setOnCheckedChangeListener(listener);
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkToggleButton();
     }
 
     public void showDialogEqualizer(String[] animals, int[] imageIdArrr) {
@@ -204,5 +166,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showDialogEqualizer(equalizer, imageIdEqualizer);
                 break;
         }
+    }
+
+    public void checkToggleButton() {
+        if (!toggleButtonBastBoot.isChecked()) {
+            seekBarBastBoot.setEnabled(false);
+        } else {
+            seekBarBastBoot.setEnabled(true);
+        }
+        if (!toggleButtonBoostVolume.isChecked()) {
+            seekBarBoostVolume.setEnabled(false);
+        } else {
+            seekBarBoostVolume.setEnabled(true);
+        }
+        if (!toggleButtonVirtualizer.isChecked()) {
+            seekBarVirtualizer.setEnabled(false);
+        } else {
+            seekBarVirtualizer.setEnabled(true);
+        }
+        if (!toggleButtonEqualizer.isChecked()) {
+            layouEqualizer.setEnabled(false);
+        } else {
+            layouEqualizer.setEnabled(true);
+        }
+        if (!toggleButtonReverb.isChecked()) {
+            layouReverb.setEnabled(false);
+        } else {
+            layouReverb.setEnabled(true);
+        }
+
+        CompoundButton.OnCheckedChangeListener listener =
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        switch (compoundButton.getId()) {
+                            case R.id.toggle_button_bast_boost:
+                                if (!compoundButton.isChecked()) {
+                                    seekBarBastBoot.setEnabled(false);
+
+                                } else {
+                                    seekBarBastBoot.setEnabled(true);
+                                }
+                                break;
+                            case R.id.toggle_button_boost_volume:
+                                if (!compoundButton.isChecked()) {
+                                    seekBarBoostVolume.setEnabled(false);
+
+                                } else {
+                                    seekBarBoostVolume.setEnabled(true);
+                                }
+                                break;
+                            case R.id.toggle_button_virtualizer:
+                                if (!compoundButton.isChecked()) {
+                                    seekBarVirtualizer.setEnabled(false);
+                                } else {
+                                    seekBarVirtualizer.setEnabled(true);
+                                }
+                                break;
+                            case R.id.toggle_button_equalizer:
+                                if (!compoundButton.isChecked()) {
+                                    layouEqualizer.setEnabled(false);
+                                } else {
+                                    layouEqualizer.setEnabled(true);
+                                }
+                                break;
+                            case R.id.toggle_button_reverb:
+                                if (!compoundButton.isChecked()) {
+                                    layouReverb.setEnabled(false);
+                                } else {
+                                    layouReverb.setEnabled(true);
+                                }
+                                break;
+                        }
+                    }
+                };
+
+        toggleButtonReverb.setOnCheckedChangeListener(listener);
+        toggleButtonVirtualizer.setOnCheckedChangeListener(listener);
+        toggleButtonEqualizer.setOnCheckedChangeListener(listener);
+        toggleButtonBoostVolume.setOnCheckedChangeListener(listener);
+        toggleButtonBastBoot.setOnCheckedChangeListener(listener);
     }
 }
